@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>Django Livraria</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" 
+        rel="stylesheet" 
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" 
+        crossorigin="anonymous">
+    </head>
+    <body>
+        <p>Seja bem vindo!</p>
+        <p>Boas compras</p>
+
+        {% for livro in livros %}
+            Nome: {{ livro.nome }}<br/>
+            Código: {{ livro.codigo }}<br/>
+            Ano: {{ livro.ano }}<br/>
+            Valor: {{ livro.valor }}<br/>
+            <img height="300" width="200" src="{{ livro.imagem.url }}">
+            Autores: <br/>
+            {% for nome in livro.autor.all %}
+                {{ nome }}<br/>
+            {% endfor %}     
+            <br>
+        {% endfor %}
+
+    </body>
+</html>
